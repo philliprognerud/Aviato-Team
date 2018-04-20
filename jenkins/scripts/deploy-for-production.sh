@@ -14,11 +14,11 @@ echo '"node_modules" directory (i.e. within the appropriate subdirectory of'
 echo '"/var/jenkins_home/workspace/"), which means that this module should not'
 echo 'need to be downloaded after this Pipeline''s initial run for a given'
 echo 'branch.'
-set -x
-npm install -g serve
-sleep 1
-serve -s build
-set +x
+# set -x
+# npm install -g serve
+# sleep 1
+# serve -s build
+# set +x
 
 echo 'The following "serve" command runs the npm serve module (downloaded'
 echo 'above) deploys your Node.js/React application (built above in production'
