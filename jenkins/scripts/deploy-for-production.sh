@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @philliprognerud
-Sign out
-1
-5 225 jenkins-docs/building-a-multibranch-pipeline-project
- Code  Issues 0  Pull requests 2  Projects 0  Wiki  Insights
-building-a-multibranch-pipeline-project/jenkins/scripts/deploy-for-production.sh
-b03d0de  on Nov 21, 2017
-@gilesgas gilesgas Update description for 'npm install serve' command
-     
-Executable File  40 lines (35 sloc)  1.73 KB
 #!/usr/bin/env sh
 
 echo 'The following "npm" command builds your Node.js/React application for'
