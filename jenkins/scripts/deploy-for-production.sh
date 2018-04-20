@@ -5,6 +5,7 @@ set +x
 
 set -x
 aws
+eco $PATH
 set +x
 
 # set -x
