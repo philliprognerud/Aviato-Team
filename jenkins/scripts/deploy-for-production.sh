@@ -5,7 +5,7 @@ set +x
 
 set -x
 aws
-eco $PATH
+echo $PATH
 set +x
 
 # set -x
