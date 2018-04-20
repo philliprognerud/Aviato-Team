@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 set -x
-npm install
+npm install -g aws-sdk
 set +x
 
 set -x
