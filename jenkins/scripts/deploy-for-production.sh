@@ -8,6 +8,6 @@ aws configure
 set +x
 
 set -x
-npm run build && aws s3 sync build/ s3://aviato-team
+echo $PATH
 set +x
 
