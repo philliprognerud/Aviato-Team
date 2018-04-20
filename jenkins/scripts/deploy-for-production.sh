@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 set -x
-npm install -g aws-sdk
+# npm install -g aws-sdk
+npm install cat-me -g
 set +x
 
 set -x
-aws
+C A T   M E
 echo $PATH
 set +x
 
