@@ -60,4 +60,6 @@ typings/
 
 .c9
 
-jenkins/scripts/deploy-for-production
+jenkins/scripts/deploy-for-production.sh
+jenkins/scripts/
+deploy-for-production.sh
