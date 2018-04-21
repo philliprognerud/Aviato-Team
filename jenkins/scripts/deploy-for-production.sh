@@ -15,6 +15,7 @@ export AWS_DEFAULT_REGION=us-west-2
 apk add --no-cache python3 py3-pip gcc python3-dev py3-cffi    file git curl autoconf automake py3-cryptography linux-headers musl-dev libffi-dev openssl-dev build-base
 pip3 install awscli
 
+
 set +x
 
 
