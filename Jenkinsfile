@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
+            image 'node:8-alpine'
             args '-p 3000:3000 -p 5000:5000'
         }
     }
@@ -11,11 +11,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'node --version'
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
+                sh 'node --version'
                 sh './jenkins/scripts/test.sh'
             }
         }
@@ -34,6 +36,7 @@ pipeline {
                 branch 'production'
             }
             steps {
+                sh 'node --version'
                 sh './jenkins/scripts/deploy-for-production.sh'
             }
         }
