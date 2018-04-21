@@ -4,8 +4,12 @@ echo 'Build the React App, and send it to an S3 bucket to deploy'
 echo 'Also start a local server to see the deployed application'
 
 set -x
-npm run build
-/usr/bin/aws s3 sync build/ s3://aviato-team
+# npm run build
+# /usr/bin/aws s3 sync build/ s3://aviato-team
+pwd
+echo ~
+echo $HOME
+echo /home/$USER
 set +x
 
 set -x
