@@ -15,7 +15,10 @@ echo '"/var/jenkins_home/workspace/"), which means that this module should not'
 echo 'need to be downloaded after this Pipeline''s initial run for a given'
 echo 'branch.'
 set -x
-npm install serve
+export AWS_ACCESS_KEY_ID=AKIAI6D5TZQUAEFJRIHA
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_DEFAULT_REGION=us-west-2
+npm install serve aws-sdk
 set +x
 
 echo 'The following "serve" command runs the npm serve module (downloaded'
@@ -29,6 +32,7 @@ echo 'of the previously run process (i.e. "serve") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
 serve -c 0 -s build &
+aws s3 sync build/ s3://aviato-team
 sleep 1
 echo $! > .pidfile
 set +x
