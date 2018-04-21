@@ -15,7 +15,7 @@ echo '"/var/jenkins_home/workspace/"), which means that this module should not'
 echo 'need to be downloaded after this Pipeline''s initial run for a given'
 echo 'branch.'
 set -x
-npm install serve
+# npm install aws-sdk
 set +x
 
 echo 'The following "serve" command runs the npm serve module (downloaded'
@@ -28,7 +28,8 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "serve") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-./node_modules/serve/bin/serve.js -c 0 -s build &
+# ./node_modules/serve/bin/serve.js -c 0 -s build &
+~/.local/bin/aws configure
 sleep 1
 echo $! > .pidfile
 set +x
