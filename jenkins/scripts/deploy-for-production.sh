@@ -5,7 +5,7 @@ echo 'production in the local "build" directory (i.e. within the appropriate'
 echo 'subdirectory of "/var/jenkins_home/workspace/"), correctly bundles React'
 echo 'in production mode and optimizes the build for the best performance.'
 set -x
-npm run build
+# npm run build
 set +x
 
 echo 'The following "npm" command downloads and installs the npm serve module'
@@ -18,6 +18,7 @@ set -x
 # npm install aws-sdk
 echo $HOME
 echo $PATH
+ls -a
 set +x
 
 echo 'The following "serve" command runs the npm serve module (downloaded'
