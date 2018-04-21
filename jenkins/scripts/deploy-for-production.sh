@@ -3,6 +3,9 @@
 echo 'Build the React App, and send it to an S3 bucket to deploy'
 echo 'Also start a local server to see the deployed application'
 
+###       Get into the alpine docker image terminal
+####      docker run -it --rm node:8-alpine /bin/ash
+
 
 set -x
 apk add --no-cache python3 py3-pip gcc python3-dev py3-cffi    file git curl autoconf automake py3-cryptography linux-headers musl-dev libffi-dev openssl-dev build-base
