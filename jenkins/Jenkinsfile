@@ -38,6 +38,7 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh './jenkins/scripts/deploy-for-production.sh'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
