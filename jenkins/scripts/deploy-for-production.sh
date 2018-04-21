@@ -11,4 +11,5 @@
 
 set -x
 pip --version
+python --version
 set +x
