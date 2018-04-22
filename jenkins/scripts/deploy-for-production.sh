@@ -14,7 +14,8 @@ set -x
 
 # apk add --no-cache python3 py3-pip gcc python3-dev py3-cffi    file git curl autoconf automake py3-cryptography linux-headers musl-dev libffi-dev openssl-dev build-base
 # pip3 install awscli
-echo "My secret is - $BUCKET_CRED"
+echo "My secret is - $AKIAIEMDAF2NRJUQ4KIA"
+echo "My secret is - $MY_SECRET"
 set +x
 
 
