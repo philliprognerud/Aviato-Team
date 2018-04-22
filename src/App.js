@@ -5,8 +5,8 @@ import axios from 'axios'
 
 class App extends Component {
   
-  handleClick(e){
-    let res = axios.get("https://reqres.in/api/users?page=2")
+  async handleClick(e){
+    let res = await axios.get("https://reqres.in/api/users?page=2")
     
     console.log(res)
   }
