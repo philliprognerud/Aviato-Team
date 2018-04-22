@@ -37,17 +37,19 @@ pipeline {
             }
             steps {
                 sh 'node --version'
+                
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'BUCKET_CRED',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
-                    sh "export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}"
-                    sh "export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}"
-                    sh "export AWS_DEFAULT_REGION=us-west-2"
+                    sh 'export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}'
+                    sh 'export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}'
+                    sh 'AWS_DEFAULT_REGION=us-west-2'
+                    sh './jenkins/scripts/deploy-for-production.sh'
                 }
-                sh './jenkins/scripts/deploy-for-production.sh'
+                
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
