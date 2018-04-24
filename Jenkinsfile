@@ -37,7 +37,16 @@ pipeline {
             }
             steps {
                 sh 'node --version'
-                sh './jenkins/scripts/deploy-for-production.sh'
+                
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'BUCKET_CRED',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh './jenkins/scripts/deploy-for-production.sh'
+                }
+                
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
