@@ -9,17 +9,19 @@ export default class Signup extends React.Component {
   }
 
   async handleSubmit(e) {
-    // let res = await axios.post(
-    //   "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
-    //   {
-    //     firstName: "tim21",
-    //     lastName: "test1241",
-    //     email: "pr35@gmail.com",
-    //     password: "Deskjet700phil"
-    //   }
-    // );
     e.preventDefault();
-    console.log(this.firstNameVal.value, this.lastNameVal.value);
+
+    let res = await axios.post(
+      "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
+      {
+        firstName: this.firstNameVal.value,
+        lastName: this.lastNameVal.value,
+        email: this.emailVal.value,
+        password: this.passwordVal.value
+      }
+    );
+
+    console.log(res);
   }
 
   render() {
@@ -52,11 +54,25 @@ export default class Signup extends React.Component {
               </div>
               <div class="field">
                 <label>Email</label>
-                <input type="text" name="email" placeholder="Email" />
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  ref={val => {
+                    this.emailVal = val;
+                  }}
+                />
               </div>
               <div class="field">
                 <label>Password</label>
-                <input type="text" name="password" placeholder="Password" />
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  ref={val => {
+                    this.passwordVal = val;
+                  }}
+                />
               </div>
               <div class="field">
                 <div class="ui checkbox">
