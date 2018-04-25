@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { home: true, login: false, signup: false };
+    this.state = {};
   }
 
   async handleSubmit(e) {

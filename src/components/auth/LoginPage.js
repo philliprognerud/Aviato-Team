@@ -8,6 +8,7 @@ export default class LoginPage extends React.Component {
     this.widget = new OktaSignIn({
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
+      logo: "/aviato.jpg",
       redirectUri:
         "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
       authParams: {
@@ -22,7 +23,6 @@ export default class LoginPage extends React.Component {
   componentDidMount() {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
-        console.log("inactive : " + response);
         this.setState({ user: response.login });
       } else {
         this.showLogin();
