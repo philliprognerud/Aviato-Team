@@ -9,9 +9,9 @@ import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+  // componentDidMount() {
+  //   this.props.fetchUser();
+  // }
 
   render() {
     return (

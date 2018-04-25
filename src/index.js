@@ -10,8 +10,6 @@ import reducers from "./reducers";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
-document.querySelector("#root").style.backgroundColor = "#f7f7f7";
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
