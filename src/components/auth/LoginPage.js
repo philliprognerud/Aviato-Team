@@ -1,7 +1,8 @@
 import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
+// import { connect } from "react-redux";
 
-export default class LoginPage extends React.Component {
+class LoginPage extends React.Component {
   constructor() {
     super();
     this.state = { user: null };
@@ -72,3 +73,9 @@ export default class LoginPage extends React.Component {
     );
   }
 }
+
+// function mapStateToProps({ auth }) {
+//   return { auth };
+// }
+
+export default LoginPage;

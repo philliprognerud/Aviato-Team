@@ -1,6 +1,7 @@
 import React from "react";
+// import { connect } from "react-redux";
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -59,3 +60,9 @@ export default class Header extends React.Component {
     );
   }
 }
+
+// function mapStateToProps({ auth }) {
+//   return { auth };
+// }
+
+export default Header;

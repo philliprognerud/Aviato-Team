@@ -9,17 +9,17 @@ export default class Signup extends React.Component {
   }
 
   async handleSubmit(e) {
-    let res = await axios.post(
-      "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
-      {
-        firstName: "tim21",
-        lastName: "test1241",
-        email: "pr35@gmail.com",
-        password: "Deskjet700phil"
-      }
-    );
+    // let res = await axios.post(
+    //   "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
+    //   {
+    //     firstName: "tim21",
+    //     lastName: "test1241",
+    //     email: "pr35@gmail.com",
+    //     password: "Deskjet700phil"
+    //   }
+    // );
 
-    console.log(res);
+    console.log(this.firstNameVal, this.lastNameVal);
   }
 
   render() {
@@ -30,11 +30,25 @@ export default class Signup extends React.Component {
             <form class="ui form">
               <div class="field">
                 <label>First Name</label>
-                <input type="text" name="first-name" placeholder="First Name" />
+                <input
+                  type="text"
+                  name="first-name"
+                  placeholder="First Name"
+                  ref={val => {
+                    this.firstNameVal = val;
+                  }}
+                />
               </div>
               <div class="field">
                 <label>Last Name</label>
-                <input type="text" name="last-name" placeholder="Last Name" />
+                <input
+                  type="text"
+                  name="last-name"
+                  placeholder="Last Name"
+                  ref={val => {
+                    this.lastNameVal = val;
+                  }}
+                />
               </div>
               <div class="field">
                 <label>Email</label>

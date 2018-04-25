@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 import LoginPage from "./components/auth/LoginPage";
 import Signup from "./components/auth/Signup";
@@ -8,6 +9,10 @@ import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
       <div>
@@ -24,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
