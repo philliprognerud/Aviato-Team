@@ -37,7 +37,6 @@ class LoginPage extends React.Component {
     this.widget.renderEl(
       { el: this.loginContainer },
       response => {
-        console.log("widget :  " + response);
         this.setState({ user: response.claims.email });
       },
       err => {
@@ -61,8 +60,7 @@ class LoginPage extends React.Component {
             <div>Welcome, {this.state.user}!</div>
             <button onClick={this.logout}>Logout</button>
           </div>
-        ) : null}
-        {this.state.user ? null : (
+        ) : (
           <div
             ref={div => {
               this.loginContainer = div;
