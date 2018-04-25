@@ -1,39 +1,28 @@
 #!/usr/bin/env sh
 
-echo 'The following "npm" command builds your Node.js/React application for'
-echo 'production in the local "build" directory (i.e. within the appropriate'
-echo 'subdirectory of "/var/jenkins_home/workspace/"), correctly bundles React'
-echo 'in production mode and optimizes the build for the best performance.'
+echo 'Build the React App, and send it to an S3 bucket to deploy'
+echo 'Also start a local server to see the deployed application'
+
+###       Get into the alpine docker image terminal
+####      docker run -it --rm node:8-alpine /bin/ash
+
 set -x
-npm run build
+export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+export AWS_DEFAULT_REGION=us-west-2
+
+apk add --no-cache python3 py3-pip gcc python3-dev py3-cffi    file git curl autoconf automake py3-cryptography linux-headers musl-dev libffi-dev openssl-dev build-base
+pip3 install awscli
 set +x
 
-echo 'The following "npm" command downloads and installs the npm serve module'
-echo '(for serving static sites in production environments) to the local'
-echo '"node_modules" directory (i.e. within the appropriate subdirectory of'
-echo '"/var/jenkins_home/workspace/"), which means that this module should not'
-echo 'need to be downloaded after this Pipeline''s initial run for a given'
-echo 'branch.'
+
+set -x
+npm run build && /usr/bin/aws s3 sync build/ s3://aviato-team
+set +x
+
 set -x
 npm install serve
-set +x
-
-echo 'The following "serve" command runs the npm serve module (downloaded'
-echo 'above) deploys your Node.js/React application (built above in production'
-echo 'mode) for production and makes the application available for web browsing.'
-echo 'The "serve" command has a trailing ampersand so that the command runs'
-echo 'as a background process (i.e. asynchronously). Otherwise, this command'
-echo 'can pause running builds of CI/CD applications indefinitely. "serve"'
-echo 'is followed by another command that retrieves the process ID (PID) value'
-echo 'of the previously run process (i.e. "serve") and writes this value to'
-echo 'the file ".pidfile".'
-set -x
 ./node_modules/serve/bin/serve.js -c 0 -s build &
 sleep 1
 echo $! > .pidfile
 set +x
-
-echo 'Now...'
-echo 'Visit http://localhost:5000 to see your Node.js/React application in action.'
-echo '(This is why you specified the "args ''-p 5000:5000''" parameter when you'
-echo 'created your initial Pipeline as a Jenkinsfile.)'
