@@ -9,7 +9,7 @@ export default class LoginPage extends React.Component {
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
       logo:
-        "https://i.pinimg.com/originals/b3/91/81/b39181644e57a6eea4a2df54aee23fac.jpg",
+        "http://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo.svg",
       redirectUri:
         "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
       authParams: {

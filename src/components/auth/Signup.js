@@ -25,7 +25,7 @@ export default class Signup extends React.Component {
   render() {
     return (
       <div>
-        <div class="ui two column centered grid" style={{ marginTop: "50px" }}>
+        <div class="ui four column centered grid" style={{ marginTop: "50px" }}>
           <div class="column">
             <form class="ui form">
               <div class="field">
