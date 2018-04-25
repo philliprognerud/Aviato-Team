@@ -6,9 +6,9 @@ export default class Header extends React.Component {
     let res = await axios.post(
       "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
       {
-        firstName: "tim",
-        lastName: "test",
-        email: "philliprognerud35@gmail.com",
+        firstName: "tim21",
+        lastName: "test1241",
+        email: "pr35@gmail.com",
         password: "Deskjet700phil"
       }
     );
