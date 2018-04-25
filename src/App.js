@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import axios from "axios";
 import LoginPage from "./components/auth/LoginPage";
-import Signup from "./components/auth/LoginPage";
+import Signup from "./components/auth/Signup";
 import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 

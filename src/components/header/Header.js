@@ -30,6 +30,7 @@ export default class Header extends React.Component {
               onClick={e =>
                 this.setState({ home: "active", login: "", signup: "" })
               }
+              href="/"
             >
               Home
             </a>
