@@ -18,7 +18,7 @@ export default class Signup extends React.Component {
     //     password: "Deskjet700phil"
     //   }
     // );
-
+    e.preventDefault();
     console.log(this.firstNameVal, this.lastNameVal);
   }
 
