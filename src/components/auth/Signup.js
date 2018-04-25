@@ -67,7 +67,7 @@ export default class Signup extends React.Component {
               <button
                 class="ui button"
                 type="submit"
-                onSubmit={e => this.handleSubmit(e)}
+                onClick={e => this.handleSubmit(e)}
               >
                 Submit
               </button>
