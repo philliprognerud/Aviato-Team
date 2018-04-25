@@ -19,7 +19,7 @@ export default class Signup extends React.Component {
     //   }
     // );
     e.preventDefault();
-    console.log(this.firstNameVal, this.lastNameVal);
+    console.log(this.firstNameVal.value, this.lastNameVal.value);
   }
 
   render() {
