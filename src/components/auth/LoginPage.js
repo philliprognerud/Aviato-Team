@@ -8,7 +8,8 @@ export default class LoginPage extends React.Component {
     this.widget = new OktaSignIn({
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
-      logo: "/aviato.jpg",
+      logo:
+        "https://i.pinimg.com/originals/b3/91/81/b39181644e57a6eea4a2df54aee23fac.jpg",
       redirectUri:
         "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
       authParams: {

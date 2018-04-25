@@ -25,37 +25,41 @@ export default class Signup extends React.Component {
   render() {
     return (
       <div>
-        <form class="ui form">
-          <div class="field">
-            <label>First Name</label>
-            <input type="text" name="first-name" placeholder="First Name" />
+        <div class="ui two column centered grid" style={{ marginTop: "50px" }}>
+          <div class="column">
+            <form class="ui form">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" name="first-name" placeholder="First Name" />
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" name="last-name" placeholder="Last Name" />
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Email" />
+              </div>
+              <div class="field">
+                <label>Password</label>
+                <input type="text" name="password" placeholder="Password" />
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden" />
+                  <label>I agree to the Terms and Conditions</label>
+                </div>
+              </div>
+              <button
+                class="ui button"
+                type="submit"
+                onSubmit={e => this.handleSubmit(e)}
+              >
+                Submit
+              </button>
+            </form>
           </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input type="text" name="last-name" placeholder="Last Name" />
-          </div>
-          <div class="field">
-            <label>Email</label>
-            <input type="text" name="email" placeholder="Email" />
-          </div>
-          <div class="field">
-            <label>Password</label>
-            <input type="text" name="password" placeholder="Password" />
-          </div>
-          <div class="field">
-            <div class="ui checkbox">
-              <input type="checkbox" tabindex="0" class="hidden" />
-              <label>I agree to the Terms and Conditions</label>
-            </div>
-          </div>
-          <button
-            class="ui button"
-            type="submit"
-            onSubmit={e => this.handleSubmit(e)}
-          >
-            Submit
-          </button>
-        </form>
+        </div>
       </div>
     );
   }
