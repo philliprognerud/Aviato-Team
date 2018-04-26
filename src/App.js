@@ -14,6 +14,9 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
+            <a href="https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/">
+              Test pickle application
+            </a>
             <Route path="/login/:pathParam?" component={LoginPage} />
             <Route path="/signup" component={Signup} />
           </div>
