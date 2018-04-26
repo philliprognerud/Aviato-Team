@@ -1,33 +1,23 @@
 import axios from "axios";
-import { FETCH_USER, UPDATE_USER_CART } from "./types";
+import { FETCH_USER, FETCH_WIDGET } from "./types";
 
 export const setOktaUser = res => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res });
 };
 
-export const updateUserCart = (itemID = false) => async dispatch => {
-  switch (itemID) {
-    case false: {
-      const res = await axios.post("/api/items-in-cart", {
-        itemID: itemID
-      });
+export const fetchOktaWidget = () => async dispatch => {
+  import OktaSignIn from "@okta/okta-signin-widget";
 
-      if (res.data) {
-        dispatch({ type: UPDATE_USER_CART, payload: res.data.cart.length });
-      } else {
-        dispatch({ type: UPDATE_USER_CART, payload: null });
-      }
-
-      break;
+  let widget = new OktaSignIn({
+    baseUrl: "https://dev-842835.oktapreview.com",
+    clientId: "0oaeszy1axIjhc08c0h7",
+    logo:
+      "http://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo.svg",
+    redirectUri: "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
+    authParams: {
+      responseType: "id_token"
     }
+  });
 
-    default: {
-      const res = await axios.post("/api/add-to-cart", {
-        itemID: itemID
-      });
-
-      dispatch({ type: UPDATE_USER_CART, payload: res.data.cartSize });
-      break;
-    }
-  }
+  dispatch({ type: FETCH_WIDGET, payload: widget });
 };

@@ -25,6 +25,7 @@ class LoginPage extends React.Component {
 
   componentDidUpdate() {
     console.log(this.props.auth);
+    console.log(this.props.widget);
   }
 
   componentDidMount() {
@@ -78,8 +79,8 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, widget }) {
+  return { auth, widget };
 }
 
 export default connect(mapStateToProps, actions)(LoginPage);
