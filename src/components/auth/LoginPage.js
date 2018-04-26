@@ -66,7 +66,7 @@ class LoginPage extends React.Component {
       <div>
         {this.props.auth ? (
           <div className="container">
-            <div>Welcome, {this.props.claims.email}!</div>
+            <div>Welcome, {this.props.auth.claims.email}!</div>
             <button class="ui button" onClick={this.logout}>
               Logout
             </button>
