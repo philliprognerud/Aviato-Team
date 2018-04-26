@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.auth && window.location.href === "/login") {
+    if (!this.props.auth) {
       this.setOktaSession();
     }
   }
