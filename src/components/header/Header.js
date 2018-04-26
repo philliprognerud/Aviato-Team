@@ -25,7 +25,10 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <div class="ui inverted segment" style={{ borderRadius: "0px" }}>
+        <div
+          class="ui inverted segment"
+          style={{ borderRadius: "0px", boxShadow: "0 2px 8px black" }}
+        >
           <div class="ui inverted secondary pointing menu">
             <a
               class={`${this.state.home} ${
