@@ -1,10 +1,12 @@
 import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
-export default class LoginPage extends React.Component {
-  constructor() {
-    super();
-    this.state = { user: null };
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+
     this.widget = new OktaSignIn({
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
@@ -19,25 +21,39 @@ export default class LoginPage extends React.Component {
 
     this.showLogin = this.showLogin.bind(this);
     this.logout = this.logout.bind(this);
+    this.setOktaSession = this.setOktaSession.bind(this);
   }
 
   componentDidMount() {
+    if (!this.props.auth) {
+      this.setOktaSession();
+    }
+  }
+
+  componentDidUpdate() {
+    this.props.logoutUser ? this.logout() : null;
+  }
+
+  setOktaSession() {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
-        this.setState({ user: response.login });
+        this.props.setOktaUser(response);
       } else {
+        if (window.location.pathname === "/login/success") {
+          window.location.href = "/login";
+        }
+
         this.showLogin();
       }
     });
   }
 
   showLogin() {
-    // Backbone.history.stop();
     this.widget.renderEl(
       { el: this.loginContainer },
       response => {
-        console.log("widget :  " + response);
-        this.setState({ user: response.claims.email });
+        this.setOktaSession();
+        window.location.href = "/login/success";
       },
       err => {
         console.log(err);
@@ -47,28 +63,47 @@ export default class LoginPage extends React.Component {
 
   logout() {
     this.widget.signOut(() => {
-      this.setState({ user: null });
+      this.props.setOktaUser();
+
       this.showLogin();
     });
+  }
+
+  renderLoggedIn() {
+    if (window.location.pathname !== "/login/success") {
+      window.location.href = "/login/success";
+    }
+
+    return (
+      <div class="ui three column centered grid" style={{ marginTop: "50px" }}>
+        <div class="column">
+          <div class="ui segment">
+            <p>Welcome, {this.props.auth.login}!</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   render() {
     return (
       <div>
-        {this.state.user ? (
-          <div className="container">
-            <div>Welcome, {this.state.user}!</div>
-            <button onClick={this.logout}>Logout</button>
-          </div>
-        ) : null}
-        {this.state.user ? null : (
+        {!this.props.auth ? (
           <div
             ref={div => {
               this.loginContainer = div;
             }}
           />
+        ) : (
+          this.renderLoggedIn()
         )}
       </div>
     );
   }
 }
+
+function mapStateToProps({ auth, logoutUser }) {
+  return { auth, logoutUser };
+}
+
+export default connect(mapStateToProps, actions)(LoginPage);

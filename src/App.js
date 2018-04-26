@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "./actions";
 
 import LoginPage from "./components/auth/LoginPage";
 import Signup from "./components/auth/Signup";
@@ -14,8 +15,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route path="/" exact component={HomePage} />
-            <Route path="/login" component={LoginPage} />
+            <Route path="/login/:pathParam?" component={LoginPage} />
             <Route path="/signup" component={Signup} />
           </div>
         </BrowserRouter>
@@ -24,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
