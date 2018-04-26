@@ -10,7 +10,7 @@ import HomePage from "./components/home/HomePage";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchOktaWidget();
+    // this.props.fetchOktaWidget();
   }
 
   render() {
