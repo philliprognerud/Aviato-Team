@@ -1,5 +1,3 @@
-/*global $ */
-
 import React from "react";
 import { connect } from "react-redux";
 
@@ -23,7 +21,7 @@ class Header extends React.Component {
   }
 
   componentDidUpdate() {
-    $(".ui.dropdown").dropdown();
+    // $(".ui.dropdown").dropdown();
   }
 
   render() {
