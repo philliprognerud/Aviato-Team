@@ -6,7 +6,6 @@ import * as actions from "./actions";
 import LoginPage from "./components/auth/LoginPage";
 import Signup from "./components/auth/Signup";
 import Header from "./components/header/Header";
-import HomePage from "./components/home/HomePage";
 
 class App extends Component {
   render() {

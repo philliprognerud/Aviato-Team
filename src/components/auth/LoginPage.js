@@ -31,7 +31,9 @@ class LoginPage extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.logoutUser ? this.logout() : null;
+    if (this.props.logoutUser) {
+      this.logout();
+    }
   }
 
   setOktaSession() {
