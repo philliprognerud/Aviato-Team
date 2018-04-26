@@ -64,6 +64,14 @@ class LoginPage extends React.Component {
     });
   }
 
+  renderLoggedIn() {
+    return (
+      <div className="container">
+        <div>Welcome, {this.props.auth.login}!</div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
@@ -73,7 +81,9 @@ class LoginPage extends React.Component {
               this.loginContainer = div;
             }}
           />
-        ) : null}
+        ) : (
+          this.renderLoggedIn()
+        )}
       </div>
     );
   }

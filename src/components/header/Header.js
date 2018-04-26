@@ -28,7 +28,9 @@ class Header extends React.Component {
         <div class="ui inverted segment" style={{ borderRadius: "0px" }}>
           <div class="ui inverted secondary pointing menu">
             <a
-              class={`${this.state.home} item`}
+              class={`${this.state.home} ${
+                this.props.auth ? "active" : ""
+              } item`}
               style={{
                 display: this.props.auth ? "none" : "inline-flex"
               }}
@@ -39,6 +41,7 @@ class Header extends React.Component {
             >
               Home
             </a>
+
             <div
               class="right menu"
               style={{
