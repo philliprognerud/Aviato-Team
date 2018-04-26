@@ -1,5 +1,5 @@
 import React from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 class Header extends React.Component {
   constructor(props) {
@@ -55,14 +55,26 @@ class Header extends React.Component {
               </a>
             </div>
           </div>
+
+          <div class="ui pointing dropdown link item">
+            <span class="text">Store</span>
+            <i class="dropdown icon" />
+            <div class="menu">
+              <div class="header">Add Items</div>
+              <div class="item">Home Goods</div>
+              <div class="item">Bedroom</div>
+              <div class="item">Status</div>
+              <div class="item">Cancellations</div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-// function mapStateToProps({ auth }) {
-//   return { auth };
-// }
+function mapStateToProps({ auth }) {
+  return { auth };
+}
 
-export default Header;
+export default connect(mapStateToProps)(Header);

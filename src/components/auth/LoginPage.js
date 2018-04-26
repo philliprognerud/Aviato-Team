@@ -1,6 +1,7 @@
 import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 class LoginPage extends React.Component {
   constructor() {
@@ -37,7 +38,8 @@ class LoginPage extends React.Component {
     this.widget.renderEl(
       { el: this.loginContainer },
       response => {
-        this.setState({ user: response.claims.email });
+        // this.setState({ user: response.claims.email });
+        this.props.setOktaUser(response);
       },
       err => {
         console.log(err);
@@ -76,4 +78,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(LoginPage);
+export default connect(mapStateToProps, actions)(LoginPage);
