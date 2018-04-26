@@ -12,6 +12,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {};
+
     this.widget = new OktaSignIn({
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
