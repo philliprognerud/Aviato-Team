@@ -28,11 +28,9 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.auth);
     this.widget.session.get(response => {
-      console.log(response);
       if (response.status !== "INACTIVE") {
-        // this.setState({ user: response.login });
+        this.props.setOktaUser(response);
       } else {
         this.showLogin();
       }
@@ -61,7 +59,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        {this.state.user ? (
+        {this.props.auth.status === "ACTIVE" ? (
           <div className="container">
             <div>Welcome, {this.state.user}!</div>
             <button onClick={this.logout}>Logout</button>
@@ -78,7 +76,7 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ auth, widget }) {
   return { auth };
 }
 

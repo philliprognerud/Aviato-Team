@@ -38,7 +38,12 @@ class Header extends React.Component {
             >
               Home
             </a>
-            <div class="right menu">
+            <div
+              class="right menu"
+              style={{
+                display: this.props.auth.status === "ACTIVE" ? "none" : "block"
+              }}
+            >
               <a
                 class={`${this.state.login} item`}
                 onClick={e =>
@@ -58,17 +63,21 @@ class Header extends React.Component {
                 Signup
               </a>
             </div>
-          </div>
-
-          <div class="ui pointing dropdown link item">
-            <span class="text">Store</span>
-            <i class="dropdown icon" />
-            <div class="menu">
-              <div class="header">Add Items</div>
-              <div class="item">Home Goods</div>
-              <div class="item">Bedroom</div>
-              <div class="item">Status</div>
-              <div class="item">Cancellations</div>
+            <div
+              class="ui pointing dropdown link item"
+              style={{
+                display: this.props.auth.status === "ACTIVE" ? "block" : "none"
+              }}
+            >
+              <span class="text">Store</span>
+              <i class="dropdown icon" />
+              <div class="menu">
+                <div class="header">Add Items</div>
+                <div class="item">Home Goods</div>
+                <div class="item">Bedroom</div>
+                <div class="item">Status</div>
+                <div class="item">Cancellations</div>
+              </div>
             </div>
           </div>
         </div>
