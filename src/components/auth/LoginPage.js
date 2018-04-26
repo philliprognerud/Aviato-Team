@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
 
   logout() {
     this.widget.signOut(() => {
-      this.setState({ user: null });
+      this.props.setOktaUser();
       this.showLogin();
     });
   }
