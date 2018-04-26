@@ -31,9 +31,6 @@ class Header extends React.Component {
               class={`${this.state.home} ${
                 this.props.auth ? "active" : ""
               } item`}
-              style={{
-                display: this.props.auth ? "none" : "inline-flex"
-              }}
               onClick={e =>
                 this.setState({ home: "active", login: "", signup: "" })
               }
@@ -67,6 +64,23 @@ class Header extends React.Component {
                 Signup
               </a>
             </div>
+
+            <div
+              class="ui dropdown link item"
+              style={{
+                display: this.props.auth ? "block" : "none"
+              }}
+            >
+              <span class="text">Store</span>
+              <i class="dropdown icon" />
+              <div class="menu">
+                <div class="item">Home Goods</div>
+                <div class="item">Bedroom</div>
+                <div class="item">Status</div>
+                <div class="item">Cancellations</div>
+              </div>
+            </div>
+
             <div
               class="right menu"
               style={{
@@ -76,22 +90,6 @@ class Header extends React.Component {
               <a class="item" onClick={e => this.props.triggerLogout()}>
                 Logout
               </a>
-            </div>
-            <div
-              class="ui pointing dropdown link item"
-              style={{
-                display: this.props.auth ? "block" : "none"
-              }}
-            >
-              <span class="text">Store</span>
-              <i class="dropdown icon" />
-              <div class="menu">
-                <div class="header">Add Items Tp:</div>
-                <div class="item">Home Goods</div>
-                <div class="item">Bedroom</div>
-                <div class="item">Status</div>
-                <div class="item">Cancellations</div>
-              </div>
             </div>
           </div>
         </div>

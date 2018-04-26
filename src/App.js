@@ -9,17 +9,13 @@ import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 
 class App extends Component {
-  componentDidMount() {
-    // this.props.fetchOktaWidget();
-  }
-
   render() {
     return (
       <div>
         <BrowserRouter>
           <div>
             <Header />
-            <Route path="/login" component={LoginPage} />
+            <Route path="/login/:pathParam?" component={LoginPage} />
             <Route path="/signup" component={Signup} />
           </div>
         </BrowserRouter>

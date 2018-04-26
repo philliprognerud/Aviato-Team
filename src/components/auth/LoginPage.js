@@ -49,6 +49,7 @@ class LoginPage extends React.Component {
       { el: this.loginContainer },
       response => {
         this.setOktaSession();
+        window.location.href = "/login/success";
       },
       err => {
         console.log(err);
