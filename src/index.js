@@ -10,6 +10,13 @@ import reducers from "./reducers";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
+document.body.style.backgroundImage =
+  "url(http://getwallpapers.com/wallpaper/full/c/9/6/788436-silicon-valley-wallpapers-2880x1800-tablet.jpg)";
+
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundRepeat = "no-repeat";
+document.body.style.backgroundPosition = "center center";
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

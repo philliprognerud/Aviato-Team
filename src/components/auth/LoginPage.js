@@ -39,6 +39,10 @@ class LoginPage extends React.Component {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
       } else {
+        if (window.location.pathname === "/login/success") {
+          window.location.href = "/login";
+        }
+
         this.showLogin();
       }
     });
@@ -71,8 +75,12 @@ class LoginPage extends React.Component {
     }
 
     return (
-      <div className="container">
-        <div>Welcome, {this.props.auth.login}!</div>
+      <div class="ui three column centered grid" style={{ marginTop: "50px" }}>
+        <div class="column">
+          <div class="ui segment">
+            <p>Welcome, {this.props.auth.login}!</p>
+          </div>
+        </div>
       </div>
     );
   }
