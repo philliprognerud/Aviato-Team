@@ -10,8 +10,6 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.widget);
-
     let path = window.location.pathname;
 
     if (path === "/") {
@@ -21,10 +19,6 @@ class Header extends React.Component {
     } else if (path === "/signup") {
       this.setState({ home: "", login: "", signup: "active" });
     }
-  }
-
-  componentDidUpdate() {
-    // $(".ui.dropdown").dropdown();
   }
 
   render() {
@@ -83,7 +77,7 @@ class Header extends React.Component {
               </a>
             </div>
             <div
-              class="ui right pointing dropdown link item"
+              class="ui pointing dropdown link item"
               style={{
                 display: this.props.auth ? "block" : "none"
               }}

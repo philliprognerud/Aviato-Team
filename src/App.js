@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "./actions";
 import OktaSignIn from "@okta/okta-signin-widget";
 
-import LoginPage from "./components/auth/LoginPage";
 import Signup from "./components/auth/Signup";
 import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
@@ -24,10 +23,47 @@ class App extends Component {
         responseType: "id_token"
       }
     });
+
+    this.showLogin = this.showLogin.bind(this);
+    this.logout = this.logout.bind(this);
+    this.setOktaSession = this.setOktaSession.bind(this);
   }
 
   componentDidMount() {
-    // this.props.fetchOktaWidget();
+    if (!this.props.auth && window.location.href === "/login") {
+      this.setOktaSession();
+    }
+  }
+
+  setOktaSession() {
+    this.widget.session.get(response => {
+      if (response.status !== "INACTIVE") {
+        this.props.setOktaUser(response);
+        window.location.href = "/";
+      } else {
+        this.showLogin();
+      }
+    });
+  }
+
+  showLogin() {
+    this.widget.renderEl(
+      { el: this.loginContainer },
+      response => {
+        this.setOktaSession();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  logout() {
+    this.widget.signOut(() => {
+      this.props.setOktaUser();
+
+      this.showLogin();
+    });
   }
 
   render() {
@@ -35,10 +71,17 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <Header widget={this.widget} />
+            <Header />
             <Route path="/" exact component={HomePage} />
-            <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={Signup} />
+
+            {!this.props.auth ? (
+              <div
+                ref={div => {
+                  this.loginContainer = div;
+                }}
+              />
+            ) : null}
           </div>
         </BrowserRouter>
       </div>
@@ -46,4 +89,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps, actions)(App);
