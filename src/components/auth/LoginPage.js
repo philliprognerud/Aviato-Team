@@ -3,6 +3,8 @@ import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
+import aviato from "./aviato.png";
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,10 +12,8 @@ class LoginPage extends React.Component {
     this.widget = new OktaSignIn({
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
-      logo:
-        "http://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo.svg",
-      redirectUri:
-        "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
+      logo: `${aviato}`,
+      redirectUri: "https://dysl2hoxopw16.cloudfront.net",
       authParams: {
         responseType: "id_token"
       }

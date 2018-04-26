@@ -7,11 +7,11 @@ import reduxThunk from "redux-thunk";
 
 import App from "./App";
 import reducers from "./reducers";
+import bg from "./bg.jpg";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
-document.body.style.backgroundImage =
-  "url(http://getwallpapers.com/wallpaper/full/c/9/6/788436-silicon-valley-wallpapers-2880x1800-tablet.jpg)";
+document.body.style.backgroundImage = `url(${bg})`;
 
 document.body.style.backgroundSize = "cover";
 document.body.style.backgroundRepeat = "no-repeat";
