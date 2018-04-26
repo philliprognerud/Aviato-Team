@@ -27,7 +27,11 @@ class LoginPage extends React.Component {
   componentDidUpdate() {
     console.log(this.props.auth);
 
-    document.querySelector(".auth-container").style.display = "none";
+    let oktaContainer = document.querySelector(".auth-container");
+
+    if (oktaContainer) {
+      oktaContainer.style.display = "none";
+    }
   }
 
   componentDidMount() {
