@@ -78,7 +78,7 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ auth, widget }) {
+function mapStateToProps({ auth }) {
   return { auth };
 }
 
