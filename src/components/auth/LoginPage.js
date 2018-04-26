@@ -59,7 +59,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        {this.props.auth.status === "ACTIVE" ? (
+        {this.props.auth ? (
           <div className="container">
             <div>Welcome, {this.state.user}!</div>
             <button onClick={this.logout}>Logout</button>
