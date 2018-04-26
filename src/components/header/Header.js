@@ -1,6 +1,7 @@
 /*eslint-disable no-unreachable, no-extra-semi, no-unused-vars, no-undef, unknown-require, forbiddenExportImport, semi, no-const-assign, check-tern-plugin*/
 import React from "react";
 import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 class Header extends React.Component {
   constructor(props) {
@@ -69,13 +70,7 @@ class Header extends React.Component {
                 display: this.props.auth ? "inline-flex" : "none"
               }}
             >
-              <a
-                class={`${this.state.signup} item`}
-                onClick={e =>
-                  this.setState({ home: "", login: "", signup: "active" })
-                }
-                href="/signup"
-              >
+              <a class="item" onClick={e => this.props.triggerLogout()}>
                 Logout
               </a>
             </div>
@@ -88,7 +83,7 @@ class Header extends React.Component {
               <span class="text">Store</span>
               <i class="dropdown icon" />
               <div class="menu">
-                <div class="header">Add Items</div>
+                <div class="header">Add Items Tp:</div>
                 <div class="item">Home Goods</div>
                 <div class="item">Bedroom</div>
                 <div class="item">Status</div>
@@ -106,4 +101,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, actions)(Header);

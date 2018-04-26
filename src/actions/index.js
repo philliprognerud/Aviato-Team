@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, REGISTER_USER } from "./types";
+import { FETCH_USER, REGISTER_USER, LOGOUT_USER } from "./types";
 
 export const setOktaUser = (res = null) => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res });
@@ -22,4 +22,8 @@ export const registerOktaUser = (
   );
 
   dispatch({ type: REGISTER_USER, payload: res });
+};
+
+export const triggerLogout = () => async dispatch => {
+  dispatch({ type: LOGOUT_USER, payload: true });
 };

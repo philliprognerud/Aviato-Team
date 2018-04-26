@@ -30,6 +30,10 @@ class LoginPage extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    this.props.logoutUser ? this.logout() : null;
+  }
+
   setOktaSession() {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
@@ -76,8 +80,8 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, logoutUser }) {
+  return { auth, logoutUser };
 }
 
 export default connect(mapStateToProps, actions)(LoginPage);
