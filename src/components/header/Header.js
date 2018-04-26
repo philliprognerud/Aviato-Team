@@ -66,27 +66,26 @@ class Header extends React.Component {
             </div>
 
             <div
-              class="ui dropdown link item"
-              style={{
-                display: this.props.auth ? "block" : "none"
-              }}
-            >
-              <span class="text">Store</span>
-              <i class="dropdown icon" />
-              <div class="menu">
-                <div class="item">Home Goods</div>
-                <div class="item">Bedroom</div>
-                <div class="item">Status</div>
-                <div class="item">Cancellations</div>
-              </div>
-            </div>
-
-            <div
               class="right menu"
               style={{
                 display: this.props.auth ? "inline-flex" : "none"
               }}
             >
+              <div
+                class="ui dropdown link item"
+                style={{
+                  display: this.props.auth ? "block" : "none"
+                }}
+              >
+                <span class="text">Stores</span>
+                <i class="dropdown icon" />
+                <div class="menu">
+                  <div class="item">Walmart</div>
+                  <div class="item">Target</div>
+                  <div class="item">Pickle</div>
+                  <div class="item">Safeway</div>
+                </div>
+              </div>
               <a class="item" onClick={e => this.props.triggerLogout()}>
                 Logout
               </a>

@@ -38,6 +38,7 @@ class LoginPage extends React.Component {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
+        window.location.href = "/login/success";
       } else {
         this.showLogin();
       }
