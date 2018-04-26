@@ -23,10 +23,16 @@ class LoginPage extends React.Component {
     this.logout = this.logout.bind(this);
   }
 
+  componentDidUpdate() {
+    console.log(this.props.auth);
+  }
+
   componentDidMount() {
+    console.log(this.props.auth);
     this.widget.session.get(response => {
+      console.log(response);
       if (response.status !== "INACTIVE") {
-        this.setState({ user: response.login });
+        // this.setState({ user: response.login });
       } else {
         this.showLogin();
       }
@@ -34,11 +40,9 @@ class LoginPage extends React.Component {
   }
 
   showLogin() {
-    // Backbone.history.stop();
     this.widget.renderEl(
       { el: this.loginContainer },
       response => {
-        // this.setState({ user: response.claims.email });
         this.props.setOktaUser(response);
       },
       err => {

@@ -1,3 +1,5 @@
+/*global $ */
+
 import React from "react";
 import { connect } from "react-redux";
 
@@ -18,6 +20,10 @@ class Header extends React.Component {
     } else if (path === "/signup") {
       this.setState({ home: "", login: "", signup: "active" });
     }
+  }
+
+  componentDidUpdate() {
+    $(".ui.dropdown").dropdown();
   }
 
   render() {

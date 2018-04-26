@@ -1,18 +1,8 @@
 import axios from "axios";
 import { FETCH_USER, UPDATE_USER_CART } from "./types";
 
-export const fetchUser = () => async dispatch => {
-  // const res = await axios.get("/auth/loggedin");
-  // dispatch({ type: FETCH_USER, payload: res.data });
-
-  console.log("im here");
-};
-
 export const setOktaUser = res => async dispatch => {
-  // const res = await axios.get("/auth/loggedin");
-  // dispatch({ type: FETCH_USER, payload: res.data });
-
-  console.log(res);
+  dispatch({ type: FETCH_USER, payload: res });
 };
 
 export const updateUserCart = (itemID = false) => async dispatch => {
