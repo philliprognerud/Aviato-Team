@@ -22,7 +22,7 @@ class Header extends React.Component {
   }
 
   componentDidUpdate() {
-    $(".ui.dropdown").dropdown();
+    // $(".ui.dropdown").dropdown();
   }
 
   render() {
