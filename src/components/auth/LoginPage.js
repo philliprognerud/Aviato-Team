@@ -26,6 +26,8 @@ class LoginPage extends React.Component {
 
   componentDidUpdate() {
     console.log(this.props.auth);
+
+    document.querySelector(".auth-container").style.display = "none";
   }
 
   componentDidMount() {
@@ -76,7 +78,6 @@ class LoginPage extends React.Component {
           </div>
         ) : (
           <div
-            style={{ display: this.props.auth ? "none !important" : "block" }}
             ref={div => {
               this.loginContainer = div;
             }}

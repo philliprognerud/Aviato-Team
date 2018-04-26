@@ -41,7 +41,7 @@ class Header extends React.Component {
             <div
               class="right menu"
               style={{
-                display: this.props.auth ? "none" : "inline-block !important"
+                display: this.props.auth ? "none" : "block"
               }}
             >
               <a
@@ -66,7 +66,7 @@ class Header extends React.Component {
             <div
               class="ui right pointing dropdown link item"
               style={{
-                display: this.props.auth ? "block !important" : "none"
+                display: this.props.auth ? "block" : "none"
               }}
             >
               <span class="text">Store</span>
