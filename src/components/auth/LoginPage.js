@@ -13,7 +13,8 @@ class LoginPage extends React.Component {
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
       logo: `${aviato}`,
-      redirectUri: "https://dysl2hoxopw16.cloudfront.net",
+      redirectUri:
+        "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item",
       authParams: {
         responseType: "id_token"
       }
@@ -75,9 +76,9 @@ class LoginPage extends React.Component {
   }
 
   renderLoggedIn() {
-    if (window.location.pathname !== "/login/success") {
-      window.location.href = "/login/success";
-    }
+    // if (window.location.pathname !== "/login/success") {
+    //   window.location.href = "/login/success";
+    // }
 
     return (
       <div class="ui three column centered grid" style={{ marginTop: "50px" }}>
