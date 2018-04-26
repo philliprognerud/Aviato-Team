@@ -29,7 +29,9 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    this.setOktaSession();
+    if (!this.props.auth) {
+      this.setOktaSession();
+    }
   }
 
   setOktaSession() {
@@ -67,14 +69,14 @@ class LoginPage extends React.Component {
         {console.log(this.props.auth)}
         {this.props.auth ? (
           <div className="container">
-            <div>Welcome, {this.props.auth.claims}!</div>
+            <div>Welcome, {this.props.auth.login}!</div>
             <button class="ui button" onClick={this.logout}>
               Logout
             </button>
           </div>
         ) : (
           <div
-            style={{ display: this.props.auth ? "none" : "block" }}
+            style={{ display: this.props.auth ? "none !important" : "block" }}
             ref={div => {
               this.loginContainer = div;
             }}

@@ -66,7 +66,7 @@ class Header extends React.Component {
             <div
               class="ui right pointing dropdown link item"
               style={{
-                display: this.props.auth ? "block" : "none"
+                display: this.props.auth ? "block !important" : "none"
               }}
             >
               <span class="text">Store</span>
