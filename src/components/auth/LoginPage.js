@@ -24,16 +24,6 @@ class LoginPage extends React.Component {
     this.setOktaSession = this.setOktaSession.bind(this);
   }
 
-  componentDidUpdate() {
-    console.log(this.props.auth);
-
-    let oktaContainer = document.querySelector(".auth-container");
-
-    if (oktaContainer) {
-      oktaContainer.style.display = "none";
-    }
-  }
-
   componentDidMount() {
     if (!this.props.auth) {
       this.setOktaSession();
@@ -44,6 +34,7 @@ class LoginPage extends React.Component {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
+        window.location.href = "/";
       } else {
         this.showLogin();
       }
@@ -65,6 +56,7 @@ class LoginPage extends React.Component {
   logout() {
     this.widget.signOut(() => {
       this.props.setOktaUser();
+
       this.showLogin();
     });
   }
@@ -72,21 +64,13 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props.auth)}
-        {this.props.auth ? (
-          <div className="container">
-            <div>Welcome, {this.props.auth.login}!</div>
-            <button class="ui button" onClick={this.logout}>
-              Logout
-            </button>
-          </div>
-        ) : (
+        {!this.props.auth ? (
           <div
             ref={div => {
               this.loginContainer = div;
             }}
           />
-        )}
+        ) : null}
       </div>
     );
   }

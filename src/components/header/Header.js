@@ -10,6 +10,8 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.widget);
+
     let path = window.location.pathname;
 
     if (path === "/") {
@@ -62,6 +64,22 @@ class Header extends React.Component {
                 href="/signup"
               >
                 Signup
+              </a>
+            </div>
+            <div
+              class="right menu"
+              style={{
+                display: this.props.auth ? "inline-flex" : "none"
+              }}
+            >
+              <a
+                class={`${this.state.signup} item`}
+                onClick={e =>
+                  this.setState({ home: "", login: "", signup: "active" })
+                }
+                href="/signup"
+              >
+                Logout
               </a>
             </div>
             <div
