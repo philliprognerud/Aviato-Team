@@ -8,7 +8,6 @@ import reduxThunk from "redux-thunk";
 import App from "./App";
 import reducers from "./reducers";
 import bg from "./bg.jpg";
-
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 document.body.style.backgroundImage = `url(${bg})`;
@@ -16,7 +15,6 @@ document.body.style.backgroundImage = `url(${bg})`;
 document.body.style.backgroundSize = "cover";
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundPosition = "center center";
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

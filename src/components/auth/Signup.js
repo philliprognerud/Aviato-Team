@@ -17,6 +17,11 @@ class Signup extends React.Component {
     }
   }
 
+  componentDidMount() {
+    document.body.style.removeProperty("background-image");
+    document.body.style.backgroundColor = "#36538B";
+  }
+
   async handleSubmit(e) {
     e.preventDefault();
 
@@ -71,7 +76,7 @@ class Signup extends React.Component {
                 <div class="field">
                   <label>Password</label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="Password"
                     ref={val => {

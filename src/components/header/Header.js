@@ -3,6 +3,8 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
+import bg from "../../bg.jpg";
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,15 @@ class Header extends React.Component {
               class={`${this.state.home} ${
                 this.props.auth ? "active" : ""
               } item`}
-              onClick={e =>
-                this.setState({ home: "active", login: "", signup: "" })
-              }
+              onClick={e => {
+                if (!this.props.auth) {
+                  window.location.href = "/";
+                  setTimeout(() => {
+                    document.body.style.backgroundImage = `url(${bg})`;
+                  }, 250);
+                }
+                this.setState({ home: "active", login: "", signup: "" });
+              }}
             >
               Home
             </a>

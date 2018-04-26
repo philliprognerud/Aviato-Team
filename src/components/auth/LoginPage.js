@@ -28,6 +28,9 @@ class LoginPage extends React.Component {
     if (!this.props.auth) {
       this.setOktaSession();
     }
+
+    document.body.style.removeProperty("background-image");
+    document.body.style.backgroundColor = "#36538B";
   }
 
   componentDidUpdate() {
