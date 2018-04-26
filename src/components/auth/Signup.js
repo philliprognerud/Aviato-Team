@@ -1,27 +1,29 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
-export default class Signup extends React.Component {
+class Signup extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {};
   }
 
+  componentDidUpdate() {
+    console.log(this.props.registerRes);
+    console.log(this.props.auth);
+  }
+
   async handleSubmit(e) {
     e.preventDefault();
 
-    let res = await axios.post(
-      "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
-      {
-        firstName: this.firstNameVal.value,
-        lastName: this.lastNameVal.value,
-        email: this.emailVal.value,
-        password: this.passwordVal.value
-      }
+    this.props.registerOktaUser(
+      this.firstNameVal.value,
+      this.lastNameVal.value,
+      this.emailVal.value,
+      this.passwordVal.value
     );
-
-    console.log(res);
   }
 
   render() {
@@ -94,3 +96,9 @@ export default class Signup extends React.Component {
     );
   }
 }
+
+function mapStateToProps({ auth, registerRes }) {
+  return { auth, registerRes };
+}
+
+export default connect(mapStateToProps, actions)(Signup);

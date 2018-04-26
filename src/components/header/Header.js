@@ -41,7 +41,7 @@ class Header extends React.Component {
             <div
               class="right menu"
               style={{
-                display: this.props.auth ? "none" : "block"
+                display: this.props.auth ? "none" : "inline-flex"
               }}
             >
               <a
