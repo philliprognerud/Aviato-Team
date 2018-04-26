@@ -28,6 +28,9 @@ class Header extends React.Component {
           <div class="ui inverted secondary pointing menu">
             <a
               class={`${this.state.home} item`}
+              style={{
+                display: this.props.auth ? "none" : "inline-flex"
+              }}
               onClick={e =>
                 this.setState({ home: "active", login: "", signup: "" })
               }

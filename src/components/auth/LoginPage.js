@@ -4,9 +4,20 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 
 class LoginPage extends React.Component {
-  constructor() {
-    super();
-    this.state = { user: null };
+  constructor(props) {
+    super(props);
+
+    this.widget = new OktaSignIn({
+      baseUrl: "https://dev-842835.oktapreview.com",
+      clientId: "0oaeszy1axIjhc08c0h7",
+      logo:
+        "http://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo.svg",
+      redirectUri:
+        "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:3000",
+      authParams: {
+        responseType: "id_token"
+      }
+    });
 
     this.showLogin = this.showLogin.bind(this);
     this.logout = this.logout.bind(this);
@@ -14,13 +25,32 @@ class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.auth) {
+    if (!this.props.auth && window.location.href === "/login") {
       this.setOktaSession();
     }
   }
 
+  setOktaSession() {
+    this.widget.session.get(response => {
+      if (response.status !== "INACTIVE") {
+        this.props.setOktaUser(response);
+        window.location.href = "/";
+      } else {
+        this.showLogin();
+      }
+    });
+  }
+
   showLogin() {
-    this.props.renderWidget();
+    this.widget.renderEl(
+      { el: this.loginContainer },
+      response => {
+        this.setOktaSession();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   logout() {
