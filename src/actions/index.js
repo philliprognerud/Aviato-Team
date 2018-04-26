@@ -12,7 +12,7 @@ export const registerOktaUser = (
   password
 ) => async dispatch => {
   let res = await axios.post(
-    "http://ec2-34-217-31-45.us-west-2.compute.amazonaws.com:8000/api/add-okta-user",
+    "https://d2j322az06ot3g.cloudfront.net/api/add-okta-user",
     {
       firstName,
       lastName,

@@ -84,6 +84,9 @@ class LoginPage extends React.Component {
         <div class="column">
           <div class="ui segment">
             <p>Welcome, {this.props.auth.login}!</p>
+            <a href="https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/">
+              Test pickle application
+            </a>
           </div>
         </div>
       </div>
