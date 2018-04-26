@@ -19,7 +19,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route path="/" component={LoginPage} />
+            <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={Signup} />
           </div>
         </BrowserRouter>
