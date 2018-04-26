@@ -11,11 +11,11 @@ class Signup extends React.Component {
   }
 
   componentDidUpdate() {
-    // if (this.props.registerRes) {
-    //   window.location.href = "/login";
-    // } else {
-    //   console.log("there was an error");
-    // }
+    if (this.props.registerRes) {
+      window.location.href = "/login";
+    } else {
+      console.log("there was an error");
+    }
   }
 
   async handleSubmit(e) {

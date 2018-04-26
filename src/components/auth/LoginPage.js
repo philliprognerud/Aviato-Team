@@ -38,7 +38,6 @@ class LoginPage extends React.Component {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
-        window.location.href = "/login/success";
       } else {
         this.showLogin();
       }
@@ -67,6 +66,10 @@ class LoginPage extends React.Component {
   }
 
   renderLoggedIn() {
+    if (window.location.pathname !== "/login/success") {
+      window.location.href = "/login/success";
+    }
+
     return (
       <div className="container">
         <div>Welcome, {this.props.auth.login}!</div>
