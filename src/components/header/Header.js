@@ -95,7 +95,7 @@ class Header extends React.Component {
                     class="item"
                     onClick={window.open(
                       `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
-                        this.props.auth.id
+                        this.props.auth ? this.props.auth.id : ""
                       }`,
                       "_blank"
                     )}
