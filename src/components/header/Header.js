@@ -81,34 +81,22 @@ class Header extends React.Component {
                 display: this.props.auth ? "inline-flex" : "none"
               }}
             >
-              <div
-                class="ui dropdown link item"
-                style={{
-                  display: this.props.auth ? "block" : "none"
+              <a class="item">Walmart</a>
+              <a class="item">Target</a>
+              <a
+                class="item"
+                onClick={e => {
+                  window.open(
+                    `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
+                      this.props.auth ? this.props.auth.id : ""
+                    }/${this.props.auth ? this.props.auth.userId : ""}`,
+                    "_blank"
+                  );
                 }}
               >
-                <span class="text">Stores</span>
-                <i class="dropdown icon" />
-                <div class="menu">
-                  <div class="item">Walmart</div>
-                  <div class="item">Target</div>
-                  <div
-                    class="item"
-                    onClick={e => {
-                      console.log(this.props.auth);
-                      window.open(
-                        `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
-                          this.props.auth ? this.props.auth.id : ""
-                        }/${this.props.auth ? this.props.auth.userId : ""}`,
-                        "_blank"
-                      );
-                    }}
-                  >
-                    Pickle
-                  </div>
-                  <div class="item">Safeway</div>
-                </div>
-              </div>
+                Pickle
+              </a>
+              <a class="item">Safeway</a>
               <a class="item" onClick={e => this.props.triggerLogout()}>
                 Logout
               </a>
