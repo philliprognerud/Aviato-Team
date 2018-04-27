@@ -2,7 +2,6 @@ import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import { Redirect } from "react-router-dom";
 
 import aviato from "./aviato.png";
 
@@ -14,8 +13,7 @@ class LoginPage extends React.Component {
       baseUrl: "https://dev-842835.oktapreview.com",
       clientId: "0oaeszy1axIjhc08c0h7",
       logo: `${aviato}`,
-      redirectUri:
-        "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item",
+      redirectUri: "https://dysl2hoxopw16.cloudfront.net",
       authParams: {
         responseType: "id_token"
       }
@@ -39,19 +37,14 @@ class LoginPage extends React.Component {
     if (this.props.logoutUser) {
       this.logout();
     }
+
+    console.log(this.props.auth);
   }
 
   setOktaSession() {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
-        <Redirect
-          to={{
-            pathname:
-              "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item",
-            state: { data: response }
-          }}
-        />;
       } else {
         if (window.location.pathname === "/login/success") {
           window.location.href = "/login";
@@ -67,7 +60,7 @@ class LoginPage extends React.Component {
       { el: this.loginContainer },
       response => {
         this.setOktaSession();
-        // window.location.href = "/login/success";
+        window.location.href = "/login/success";
       },
       err => {
         console.log(err);
@@ -83,9 +76,9 @@ class LoginPage extends React.Component {
   }
 
   renderLoggedIn() {
-    // if (window.location.pathname !== "/login/success") {
-    //   window.location.href = "/login/success";
-    // }
+    if (window.location.pathname !== "/login/success") {
+      window.location.href = "/login/success";
+    }
 
     return (
       <div class="ui three column centered grid" style={{ marginTop: "50px" }}>
