@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "semantic-ui";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./actions";
