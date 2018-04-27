@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import $ from "jquery";
+
 import bg from "../../bg.jpg";
 
 class Header extends React.Component {
@@ -13,7 +13,6 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    $(".ui.dropdown").dropdown();
     let path = window.location.pathname;
 
     if (path === "/") {
