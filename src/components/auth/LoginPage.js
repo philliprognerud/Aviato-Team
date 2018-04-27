@@ -2,6 +2,7 @@ import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import { Redirect } from "react-router-dom";
 
 import aviato from "./aviato.png";
 
@@ -44,6 +45,12 @@ class LoginPage extends React.Component {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
+        <Redirect
+          to={{
+            pathname:
+              "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item"
+          }}
+        />;
       } else {
         if (window.location.pathname === "/login/success") {
           window.location.href = "/login";
