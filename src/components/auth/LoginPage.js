@@ -48,7 +48,8 @@ class LoginPage extends React.Component {
         <Redirect
           to={{
             pathname:
-              "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item"
+              "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item",
+            state: { data: response }
           }}
         />;
       } else {
