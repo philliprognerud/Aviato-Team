@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import "semantic-ui";
+
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./actions";
-import $ from "jquery";
+
 
 import LoginPage from "./components/auth/LoginPage";
 import Signup from "./components/auth/Signup";
 import Header from "./components/header/Header";
 
 class App extends Component {
-  componentDidMount() {
-    $(".ui.dropdown").dropdown();
-  }
 
   render() {
     return (
