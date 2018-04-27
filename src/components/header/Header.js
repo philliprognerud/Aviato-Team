@@ -95,10 +95,11 @@ class Header extends React.Component {
                   <div
                     class="item"
                     onClick={e => {
+                      console.log(this.props.auth);
                       window.open(
                         `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
                           this.props.auth ? this.props.auth.id : ""
-                        }`,
+                        }/${this.props.auth ? this.props.auth.userId : ""}`,
                         "_blank"
                       );
                     }}
