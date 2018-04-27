@@ -45,12 +45,6 @@ class LoginPage extends React.Component {
     this.widget.session.get(response => {
       if (response.status !== "INACTIVE") {
         this.props.setOktaUser(response);
-        window.open(
-          `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
-            response.id
-          }`,
-          "_blank"
-        );
       } else {
         if (window.location.pathname === "/login/success") {
           window.location.href = "/login";

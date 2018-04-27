@@ -2,6 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import $ from "jquery";
 
 import bg from "../../bg.jpg";
 
@@ -13,6 +14,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    $(".ui.dropdown").dropdown();
     let path = window.location.pathname;
 
     if (path === "/") {
@@ -92,7 +94,17 @@ class Header extends React.Component {
                 <div class="menu">
                   <div class="item">Walmart</div>
                   <div class="item">Target</div>
-                  <div class="item">Pickle</div>
+                  <div
+                    class="item"
+                    onClick={window.open(
+                      `https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/supplier/add-item/${
+                        this.props.auth.id
+                      }`,
+                      "_blank"
+                    )}
+                  >
+                    Pickle
+                  </div>
                   <div class="item">Safeway</div>
                 </div>
               </div>
