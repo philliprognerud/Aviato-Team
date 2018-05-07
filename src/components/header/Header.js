@@ -61,10 +61,9 @@ class Header extends React.Component {
             >
               <Link
                 class={`${this.state.login} item`}
-                onClick={e => {
-                  window.location.reload();
-                  this.setState({ home: "", login: "active", signup: "" });
-                }}
+                onClick={e =>
+                  this.setState({ home: "", login: "active", signup: "" })
+                }
                 to="/login"
               >
                 Login
