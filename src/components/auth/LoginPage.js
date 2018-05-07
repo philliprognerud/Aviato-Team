@@ -47,7 +47,7 @@ class LoginPage extends React.Component {
       } else {
         if (window.location.pathname === "/login/success") {
           //window.location.href = "/login";
-          history.replace("/login");
+          history.push("/login");
         }
 
         this.showLogin();
@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
       response => {
         this.setOktaSession();
         //window.location.href = "/login/success";
-        history.replace("/login/success");
+        history.push("/login/success");
       },
       err => {
         console.log(err);
@@ -80,7 +80,7 @@ class LoginPage extends React.Component {
   renderLoggedIn() {
     if (window.location.pathname !== "/login/success") {
       //window.location.href = "/login/success";
-      history.replace("/login/success");
+      history.push("/login/success");
     }
 
     return (
