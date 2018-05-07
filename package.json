@@ -5,6 +5,7 @@
   "dependencies": {
     "@okta/okta-signin-widget": "^2.3.0",
     "axios": "^0.18.0",
+    "history": "^4.7.2",
     "prettier": "^1.12.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

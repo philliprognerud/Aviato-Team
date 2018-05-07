@@ -2,7 +2,7 @@ import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import history from "../../history";
+import history from "../../history/history.js";
 
 import aviato from "./aviato.png";
 
