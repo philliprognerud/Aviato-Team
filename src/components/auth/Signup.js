@@ -87,12 +87,6 @@ class Signup extends React.Component {
                     }}
                   />
                 </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" tabindex="0" class="hidden" />
-                    <label>I agree to the Terms and Conditions</label>
-                  </div>
-                </div>
                 <button
                   class="ui button"
                   type="submit"
