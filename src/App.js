@@ -17,6 +17,7 @@ class App extends Component {
           <div>
             <Header />
             <Route path="/login/:pathParam?" component={LoginPage} />
+            <Route path="/login/success" component={LoginPage} />
             <Route path="/signup" component={Signup} />
           </div>
         </BrowserRouter>
