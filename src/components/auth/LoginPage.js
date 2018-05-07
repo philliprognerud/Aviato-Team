@@ -72,13 +72,15 @@ class LoginPage extends React.Component {
   logout() {
     this.widget.signOut(() => {
       this.props.setOktaUser();
-      window.location.href = "/login";
+      //window.location.href = "/login";
+      history.push("/login");
     });
   }
 
   renderLoggedIn() {
     if (window.location.pathname !== "/login/success") {
-      window.location.href = "/login/success";
+      //window.location.href = "/login/success";
+      history.replace("/login/success");
     }
 
     return (
