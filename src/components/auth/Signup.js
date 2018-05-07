@@ -14,6 +14,7 @@ class Signup extends React.Component {
     if (this.props.registerRes) {
       //window.location.href = "/login";
       history.replace("/");
+      window.location.reload();
     } else {
       console.log("there was an error");
     }

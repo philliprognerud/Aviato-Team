@@ -75,6 +75,7 @@ class LoginPage extends React.Component {
       this.props.setOktaUser();
       //window.location.href = "/login";
       history.push("/");
+      window.location.reload();
     });
   }
 
