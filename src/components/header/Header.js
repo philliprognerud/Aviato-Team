@@ -6,6 +6,8 @@ import { Link, NavLink } from "react-router-dom";
 
 import bg from "../../bg.jpg";
 
+import history from "../../history/history.js";
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,8 @@ class Header extends React.Component {
               } item`}
               onClick={e => {
                 if (!this.props.auth) {
-                  window.location.href = "/";
+                  history.replace("/");
+                  window.location.reload();
                   setTimeout(() => {
                     document.body.style.backgroundImage = `url(${bg})`;
                   }, 250);
