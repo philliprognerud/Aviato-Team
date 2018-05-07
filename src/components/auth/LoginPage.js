@@ -62,6 +62,7 @@ class LoginPage extends React.Component {
         this.setOktaSession();
         //window.location.href = "/login/success";
         history.push("/login/success");
+        document.querySelector("#okta-sign-in").style.display = "none";
       },
       err => {
         console.log(err);
@@ -73,7 +74,7 @@ class LoginPage extends React.Component {
     this.widget.signOut(() => {
       this.props.setOktaUser();
       //window.location.href = "/login";
-      history.push("/login");
+      history.push("/");
     });
   }
 
