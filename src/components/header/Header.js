@@ -2,6 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import { Link, NavLink } from "react-router-dom";
 
 import bg from "../../bg.jpg";
 
@@ -55,24 +56,24 @@ class Header extends React.Component {
                 display: this.props.auth ? "none" : "inline-flex"
               }}
             >
-              <a
+              <Link
                 class={`${this.state.login} item`}
                 onClick={e =>
                   this.setState({ home: "", login: "active", signup: "" })
                 }
-                href="/login"
+                to="/login"
               >
                 Login
-              </a>
-              <a
+              </Link>
+              <Link
                 class={`${this.state.signup} item`}
                 onClick={e =>
                   this.setState({ home: "", login: "", signup: "active" })
                 }
-                href="/signup"
+                to="/signup"
               >
                 Signup
-              </a>
+              </Link>
             </div>
 
             <div
