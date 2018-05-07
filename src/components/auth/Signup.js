@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import history from "../../history";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Signup extends React.Component {
 
   componentDidUpdate() {
     if (this.props.registerRes) {
-      window.location.href = "/login";
+      //window.location.href = "/login";
+      history.replace("/login");
     } else {
       console.log("there was an error");
     }

@@ -2,6 +2,7 @@ import React from "react";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import history from "../../history";
 
 import aviato from "./aviato.png";
 
@@ -45,7 +46,8 @@ class LoginPage extends React.Component {
         this.props.setOktaUser(response);
       } else {
         if (window.location.pathname === "/login/success") {
-          window.location.href = "/login";
+          //window.location.href = "/login";
+          history.replace("/login");
         }
 
         this.showLogin();
